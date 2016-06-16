@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin id="cordova-baidu-yingyan" version="0.0.1">
+  <name>BaiduTrace</name>
+  <platform name="android">
+
+    <js-module src="www/Trace.js">
+      <clobbers target="cordova.baiduyingyan" />
+    </js-module>
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="BaiduTrace">
+        <param name="android-package" value="com.bsy.cordovaPlugin.BaiduTrace" />
+      </feature>
+    </config-file>
+
+    <source-file src="src/android/BaiduTrace.java" target-dir="src/com/cordovaPlugin/hello" />
+    <source-file src="src/android/libs/arm64-v8a/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/arm64-v8a" />
+    <source-file src="src/android/libs/armeabi/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/armeabi" />
+    <source-file src="src/android/libs/armeabi-v7a/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/armeabi-v7a" />
+    <source-file src="src/android/libs/x86/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/x86" />
+    <source-file src="src/android/libs/x86_64/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/x86_64" />
+    <source-file src="src/android/libs/BaiduTraceSDK_v2_1_1.jar" target-dir="libs" />
+
+    <config-file target="AndroidManifest.xml" parent="/*">
+      <!-- 这个权限用于进行网络定位-->
+      <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+      <!-- 这个权限用于访问GPS定位-->
+      <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+      <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位-->
+      <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+      <!-- 获取运营商信息，用于支持提供运营商信息相关的接口-->
+      <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+      <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
+      <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+      <!--允许程序连接到已配对的蓝牙设备-->
+      <uses-permission android:name="android.permission.BLUETOOTH"/>
+      <!--允许程序发现和配对蓝牙设备-->
+      <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+      <!-- 用于读取手机当前的状态-->
+      <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+      <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
+      <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+      <!-- 访问网络，网络定位需要上网-->
+      <uses-permission android:name="android.permission.INTERNET" />
+      <!-- SD卡读取权限，用户写入离线定位数据-->
+      <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+      <!--允许应用读取低级别的系统日志文件 -->
+      <uses-permission android:name="android.permission.READ_LOGS" />
+      <!--允许访问振动设备-->
+      <uses-permission android:name="android.permission.VIBRATE" />
+      <!--屏幕保持唤醒 不锁屏-->
+      <uses-permission android:name="android.permission.WAKE_LOCK" />
+      <!--允许应用程序更改主屏幕中的设置和快捷方式-->
+      <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    </config-file>
+
+    <config-file target="AndroidManifest.xml" parent="/manifest/application">
+      <service
+         android:name="com.baidu.trace.LBSTraceService"
+         android:enabled="true"
+         android:exported="true" >
+      </service>
+      <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="你的AK" />
+    </config-file>
+
+  </platform>
+</plugin>

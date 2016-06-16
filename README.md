@@ -1,7 +1,7 @@
 #百度鹰眼cordova插件 cordova-baidu-yingyan
 
-使用：
-1. 修改config.xml里的AK
+## 使用：
+* 修改config.xml里的AK
 
 ```
 <meta-data
@@ -9,7 +9,7 @@
   android:value="你的AK" />
 ```
 
-2. 在js里使用：
+* 在js里使用：
 
 ```
 cordova.baiduyingyan.startTrace(
@@ -25,3 +25,6 @@ cordova.baiduyingyan.startTrace(
         }
       )
 ```
+
+## Next 
+支持ios

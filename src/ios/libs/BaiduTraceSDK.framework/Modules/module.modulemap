@@ -1,0 +1,10 @@
+framework module BaiduTraceSDK {
+  umbrella header "BaiduTraceSDK-Swift.h"
+
+  export *
+  module * { export * }
+}
+
+module BaiduTraceSDK.Swift {
+    header "BaiduTraceSDK-Swift.h"
+}

@@ -43,3 +43,6 @@ cordova.baiduyingyan.startTrace(
 
 # Next
 目前只是演示版本，还需要完善。
+需要提供更多功能
+将目前还要手动更改的事情自动化。
+让这个插件，安装即用。

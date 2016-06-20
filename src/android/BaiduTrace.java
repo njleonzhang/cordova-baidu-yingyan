@@ -1,7 +1,9 @@
 package com.bsy.cordovaPlugin;
 
 import org.apache.cordova.CallbackContext;
+import org.apache.cordova.CordovaInterface;
 import org.apache.cordova.CordovaPlugin;
+import org.apache.cordova.CordovaWebView;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -14,31 +16,85 @@ import com.baidu.trace.OnStartTraceListener;
 import com.baidu.trace.OnStopTraceListener;
 import com.baidu.trace.OnTrackListener;
 import com.baidu.trace.Trace;
+import com.baidu.trace.LocationMode;
 import com.cordovaPlugin.JsonUtil;
 
 import android.widget.Toast;
 
 import java.util.Map;
 
+import static com.baidu.trace.LocationMode.Battery_Saving;
+import static com.baidu.trace.LocationMode.Device_Sensors;
+import static com.baidu.trace.LocationMode.High_Accuracy;
+
 public class BaiduTrace extends CordovaPlugin {
     private LBSTraceClient client;
     private Trace trace;
     static String debugTag = "BaiduTrace";
-    private JSONObject options;
+    private Context ctx;
 
-    private boolean startTrace(JSONArray args, final CallbackContext callbackContext) {
-        options = new JSONObject();
-        long serviceId;
-        String entityName;
-        try {
-            options = args.getJSONObject(0);
-            Log.v(debugTag, options.toString());
-        } catch (JSONException e) {
-            Log.v(debugTag, "options 未传入");
-        }
-        Context ctx = cordova.getActivity().getApplicationContext();
+    @Override
+    public void initialize(CordovaInterface cordova, CordovaWebView webView) {
+        super.initialize(cordova, webView);
+        // your init code here
+        ctx = cordova.getActivity().getApplicationContext();
         //实例化轨迹服务客户端
         client = new LBSTraceClient(ctx);
+    }
+
+    private void setInterval(final JSONObject options, final CallbackContext callbackContext) {
+        try {
+            //鹰眼服务ID
+            int gatherInterval = options.getInt("gatherInterval"); //开发者创建的鹰眼服务ID
+            //entity标识
+            int packInterval = options.getInt("packInterval");
+            //轨迹服务类型（0 : 不上传位置数据，也不接收报警信息； 1 : 不上传位置数据，但接收报警信息；2 : 上传位置数据，且接收报警信息）
+            client.setInterval(gatherInterval, packInterval);
+            callbackContext.success();
+        } catch (JSONException e) {
+            Log.v(debugTag, "设置上传间隔失败");
+            callbackContext.error(e.getMessage());
+        }
+    }
+
+    private void setLocationMode(final JSONObject options, final CallbackContext callbackContext) {
+        try {
+            LocationMode lm = High_Accuracy;
+            int mode = options.getInt("locationMode");
+            switch (mode) {
+                case 0:
+                    lm = High_Accuracy;
+                    break;
+                case 1:
+                    lm = Battery_Saving;
+
+                case 2:
+                    lm = Device_Sensors;
+            }
+            client.setLocationMode(lm);
+            callbackContext.success();
+
+        } catch (Exception e) {
+            Log.v(debugTag, "设置上传间隔失败");
+            callbackContext.error(e.getMessage());
+        }
+    }
+
+    private void setProtocolType(final JSONObject options, final CallbackContext callbackContext) {
+        try {
+            int protocolType = options.getInt("protocolType");
+            client.setProtocolType(protocolType);
+            callbackContext.success();
+        } catch (Exception e) {
+            Log.v(debugTag, "设置协议失败");
+            callbackContext.error(e.getMessage());
+        }
+    }
+
+    private boolean startTrace(final JSONObject options, final CallbackContext callbackContext) {
+        long serviceId;
+        String entityName;
+
         try {
             //鹰眼服务ID
             serviceId = options.getLong("serviceId"); //开发者创建的鹰眼服务ID
@@ -126,13 +182,33 @@ public class BaiduTrace extends CordovaPlugin {
     @Override
     public boolean execute(String action, JSONArray args, final CallbackContext callbackContext) throws JSONException {
         Log.i("leon", "插件调用");
+        JSONObject options;
+
+        try {
+            options = args.getJSONObject(0);
+            Log.v(debugTag, options.toString());
+        } catch (JSONException e) {
+            Log.v(debugTag, "options 未传入");
+            return false;
+        }
+
         if (action.equals("startTrace")) {
-            startTrace(args, callbackContext);
+            startTrace(options, callbackContext);
             return true;
-        } else if (action.equals("stopTraceListener")) {
+        } else if (action.equals("stopTrace")) {
             stopTrace(callbackContext);
             return true;
+        } else if(action.equals("setInterval")){
+            setInterval(options, callbackContext);
+            return true;
+        } else if (action.equals("setLocationMode")) {
+            setLocationMode(options, callbackContext);
+            return true;
+        } else if (action.equals("setProtocolType")) {
+            setProtocolType(options, callbackContext);
+            return true;
         }
+
         return false;
     }
 

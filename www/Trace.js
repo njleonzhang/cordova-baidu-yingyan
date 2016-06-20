@@ -2,7 +2,10 @@
 var exec = require('cordova/exec');
 var SERVICE_NAME = 'BaiduTrace';
 var ACTION_START_TRACE = 'startTrace';
-var ACTION_STOP_TRACE = 'stopTraceListener';
+var ACTION_STOP_TRACE = 'stopTrace';
+var ACTION_SET_INTERVAL = 'setInterval';
+var ACTION_SET_LOCATION_MODE = 'setLocationMode';
+var ACTION_SET_PROTOCOL_TYPE = 'setProtocolType';
 
 var baiduyingyan = {};
 
@@ -46,6 +49,27 @@ baiduyingyan.startTrace = function(entity, success, fail) {
 };
 baiduyingyan.stopTraceListener = function(entity, success, fail) {
   return getPromisedCordovaExec(ACTION_STOP_TRACE, entity, success, fail);
+};
+baiduyingyan.setInterval = function(gatherInterval, packInterval, success, fail) {
+  var entity = {
+    'gatherInterval': gatherInterval,
+    'packInterval': packInterval
+  };
+  return getPromisedCordovaExec(ACTION_SET_INTERVAL, entity, success, fail);
+};
+
+baiduyingyan.setLocationMode = function(mode, success, fail) {
+  var entity = {
+    'locationMode': mode
+  };
+  return getPromisedCordovaExec(ACTION_SET_LOCATION_MODE, entity, success, fail);
+};
+
+baiduyingyan.setProtocolType = function(type, success, fail) {
+  var entity = {
+    'protocolType': type
+  };
+  return getPromisedCordovaExec(ACTION_SET_PROTOCOL_TYPE, entity, success, fail);
 };
 
 module.exports = baiduyingyan;

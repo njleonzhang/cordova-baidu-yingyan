@@ -20,15 +20,19 @@ cordova.baiduyingyan.startTrace(
 # 使用
 下载本plugin，copy到cordova工程的plugins目录下
 
-## 对于android工程需要修改：
-* 修改config.xml里的AK
+## 对于android工程需要在config.xml里添加下面的配置来配置您的AK：
 
 ```
-<meta-data
-  android:name="com.baidu.lbsapi.API_KEY"
-  android:value="你的AK" />
+config.xml:
+
+  <platform name="android">
+    <config-file target="AndroidManifest.xml" parent="./application">
+      <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="你的AK" />
+    </config-file>
+  </platform>
 ```
-然后cordova platform add android，就可以用了
 
 ## 对于ios工程
 * 首先需要在修改BaiduTrace.m文件里的一下内容:

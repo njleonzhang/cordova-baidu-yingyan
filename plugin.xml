@@ -13,6 +13,7 @@
     </config-file>
 
     <source-file src="src/android/BaiduTrace.java" target-dir="src/com/cordovaPlugin/" />
+    <source-file src="src/android/JsonUtil.java" target-dir="src/com/cordovaPlugin/" />
     <source-file src="src/android/libs/arm64-v8a/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/arm64-v8a" />
     <source-file src="src/android/libs/armeabi/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/armeabi" />
     <source-file src="src/android/libs/armeabi-v7a/libBaiduTraceSDK_v2_1_1.so" target-dir="libs/armeabi-v7a" />

@@ -59,10 +59,9 @@
          android:enabled="true"
          android:exported="true" >
       </service>
-      <meta-data
-        android:name="com.baidu.lbsapi.API_KEY"
-        android:value="d2MPZBbkVKSddBF2zaN7IfSi4OoyH42N" />
     </config-file>
+
+    <dependency id="cordova-plugin-settings-hook"/>
   </platform>
 
   <platform name="ios">
@@ -94,8 +93,9 @@
     </config-file>
 
     <framework src="src/ios/libs/BaiduTraceSDK.framework" custom="true" embed="true"/>
-    <source-file src="src/ios/BaiduTrace.h" />
-    <source-file src="src/ios/BaiduTrace.m" />
+    <source-file src="src/ios/BaiduTrace.h"/>
+    <source-file src="src/ios/BaiduTrace.m"/>
+    <dependency id="cordova-custom-config"/>
     <dependency id="cordova-plugin-add-swift-support"/>
   </platform>
 </plugin>

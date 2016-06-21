@@ -3,18 +3,33 @@
 * js代码示例：
 
 ```
-cordova.baiduyingyan.startTrace(
-        function(){
-          console.log('OK');
-        },
-        function(){
-          console.log('error');
-        },
+      cordova.baiduyingyan.setInterval(2, 10).then(function() {
+          console.log('setInterval OK');
+      });
+
+      cordova.baiduyingyan.setLocationMode(0).then(function(){
+        console.log('setLocationMode OK');
+      });
+
+      cordova.baiduyingyan.setProtocolType(0).then(function(){
+        console.log('setProtocolType OK');
+      });
+
+      cordova.baiduyingyan.startTrace(
         {
           entityName: 'cordova-test',
-          serviceId: '118984'
+          serviceId: '118984',
+          customAttr: {
+            'type': '系统回传'
+          }
         }
-      )
+      ).then(function() {
+        console.log('leon', '开始')
+        alert('开始收集')
+      }, function(error) {
+        alert('收集失败' + error);
+      })
+    }
 ```
 
 # 使用

@@ -3,48 +3,82 @@
 
 @implementation BaiduTrace
 
+- (void)pluginInitialize
+{
+    _AK = [self.commandDelegate.settings objectForKey: [@"BaiduTraceIOSAK" lowercaseString]];
+    _MCode = [self.commandDelegate.settings objectForKey: [@"BaiduTraceIOSMCode" lowercaseString]];
+
+    NSLog(@"_AK: %@, _Mcode %@", _AK, _MCode);
+}
 
 - (void)startTrace:(CDVInvokedUrlCommand*)command
 {
-    BTRACE * traceInstance = NULL;
-    int const serviceId = 118984; //此处填写在鹰眼管理后台创建的服务的ID
-    NSString *const AK = @"rp70coMHPMmpi6QI9r7n2rNGL2eXWel3";//此处填写您在API控制台申请得到的ak，该ak必须为iOS类型的ak
-    NSString *const MCODE = @"com.test.test";//此处填写您申请iOS类型ak时填写的安全码
-    NSString *const entityName = @"cordova-ios";
+    NSMutableDictionary *options = [command argumentAtIndex:0];
+    _customAttr = [options objectForKey:@"customAttr"];
 
-    traceInstance = [[BTRACE alloc] initWithAk: AK mcode: MCODE serviceId: serviceId entityName: entityName operationMode: 2];
+    NSLog(@"%@", [_customAttr objectForKey:@"type"]);
 
-    [traceInstance setInterval:5 packInterval:30];
+    long long serviceId = [[options objectForKey:@"serviceId"] longLongValue];
+    NSString* entityName = [options objectForKey:@"entityName"];
+
+
+    NSLog(@"%lldd %@", serviceId, entityName);
+
+    _traceInstance = [[BTRACE alloc] initWithAk: _AK mcode: _MCode serviceId: serviceId entityName: entityName operationMode: 2];
 
     dispatch_async(dispatch_get_main_queue(), ^{
-        [[BTRACEAction shared] startTrace:self trace:traceInstance];
+        [[BTRACEAction shared] startTrace:self trace:_traceInstance];
     });
 }
 
 - (void)stopTrace:(CDVInvokedUrlCommand*)command
 {
-
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [[BTRACEAction shared] stopTrace:self trace:_traceInstance];
+    });
 }
 
-- (NSDictionary*)trackAttr {
+-(void)setInterval:(CDVInvokedUrlCommand *)command
+{
+    NSMutableDictionary *options = [command argumentAtIndex:0];
+    int32_t gatherInterval = [[options objectForKey:@"gatherInterval"] floatValue];
+    int32_t packInterval = [[options objectForKey:@"packInterval"] floatValue];
+
+    NSLog(@"%d %d", gatherInterval, packInterval);
+    [_traceInstance setInterval:gatherInterval packInterval:packInterval];
+}
+
+-(void)setLocationMode:(CDVInvokedUrlCommand *)command
+{
+    NSLog(@"IOS SDK 不支持 setLocationMode");
+}
+
+-(void)setProtocolType:(CDVInvokedUrlCommand *)command
+{
+    NSLog(@"IOS SDK 不支持 setProtocolType");
+}
+
+- (NSDictionary*)trackAttr
+{
     NSMutableDictionary *glossary = [NSMutableDictionary dictionary];
-    [glossary setObject: @"col1" forKey: @"v1"];
-    [glossary setObject: @"col2" forKey: @"v2"];
-    return glossary;
+    return _customAttr == nil ? glossary: _customAttr;
 }
 
 #pragma mark - Trace服务相关的回调方法
 
-- (void)onStartTrace:(NSInteger)errNo errMsg:(NSString *)errMsg {
+- (void)onStartTrace:(NSInteger)errNo errMsg:(NSString *)errMsg
+{
     NSLog(@"startTrace: %@", errMsg);
-    // NSString* no = [NSString stringWithFormat:@"%ld",(long)errNo];
 }
 
-- (void)onStopTrace:(NSInteger)errNo errMsg:(NSString *)errMsg {
+- (void)onStopTrace:(NSInteger)errNo errMsg:(NSString *)errMsg
+{
     NSLog(@"stopTrace: %@", errMsg);
 }
 
-- (void)onPushTrace:(uint8_t)msgType msgContent:(NSString *)msgContent {
+// 没有用到
+- (void)onPushTrace:(uint8_t)msgType msgContent:(NSString *)msgContent
+{
     NSLog(@"收到推送消息: 类型[%d] 内容[%@]", msgType, msgContent);
 }
 

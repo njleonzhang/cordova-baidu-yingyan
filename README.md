@@ -50,11 +50,10 @@ config.xml:
 ```
 
 ## 对于ios工程
-* 首先需要在修改BaiduTrace.m文件里的一下内容:
+* config.xml里添加如下代码，配置AK和Mcode:
 ```
-    int const serviceId = 118984; //此处填写在鹰眼管理后台创建的服务的ID
-    NSString *const AK = @"rp70coMHPMmpi6QI9r7n2rNGL2eXWel3";//此处填写您在API控制台申请得到的ak，该ak必须为iOS类型的ak
-    NSString *const MCODE = @"com.test.test";//此处填写您申请iOS类型ak时填写的安全码
+  <preference name="BaiduTraceIOSAK" value="rp70coMHPMmpi6QI9r7n2rNGL2eXWel3" />
+  <preference name="BaiduTraceIOSMCode" value="com.test.test" />
 ```
 * 然后做cordova platform add ios
 * 用xcode打开生成的ios工程

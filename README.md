@@ -55,12 +55,8 @@ config.xml:
   <preference name="BaiduTraceIOSAK" value="rp70coMHPMmpi6QI9r7n2rNGL2eXWel3" />
   <preference name="BaiduTraceIOSMCode" value="com.test.test" />
 ```
-* 然后做cordova platform add ios
-* 用xcode打开生成的ios工程
-然后在general选项卡中，找到Embedded Binaries这一项，添加百度的SDK framework。
+百度的SDK framework的Embedded现在可以自动完成。
+ios的customAttr还不能支持，如果有OC的工程请帮忙看一下OC的代码。
 
 # Next
-目前只是演示版本，还需要完善。
-需要提供更多功能
-将目前还要手动更改的事情自动化。
-让这个插件，安装即用。
+提供更多接口

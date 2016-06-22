@@ -1,0 +1,29 @@
+{
+  "name": "cordova-baidu-yingyan",
+  "version": "0.0.1",
+  "description": "百度鹰眼cordova plugin",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/njleonzhang/cordova-baidu-yingyan.git"
+  },
+  "keywords": [
+    "baiduyingyan",
+    "baiduTrace"
+  ],
+  "author": "njleonzhang",
+  "license": "MIT",
+  "dependencies": {
+    "xcode": "^0.8.3"
+  },
+  "bundledDependencies": [
+    "xcode"
+  ],
+  "bugs": {
+    "url": "https://github.com/njleonzhang/cordova-baidu-yingyan/issues"
+  },
+  "homepage": "https://github.com/njleonzhang/cordova-baidu-yingyan#readme"
+}

@@ -58,11 +58,26 @@
     NSLog(@"IOS SDK 不支持 setProtocolType");
 }
 
-- (NSDictionary*)trackAttr
-{
-    NSMutableDictionary *glossary = [NSMutableDictionary dictionary];
-    return _customAttr == nil ? glossary: _customAttr;
-}
+ - (NSDictionary*)trackAttr
+ {
+     NSMutableDictionary *glossary = [NSMutableDictionary dictionary];
+
+     // 不能work， 我不知道为啥。。。
+//     NSString *key, *value;
+
+//     NSEnumerator * enumeratorKey = [_customAttr keyEnumerator];
+//     for (NSObject *object in enumeratorKey) {
+//         NSLog(@"%@", object);
+//         key = [(NSString *)object lowercaseString];
+//         value = [NSString stringWithFormat:@"%@", [_customAttr objectForKey:object]];
+//
+//         NSLog(@"%@, %@", key, value);
+//         [glossary setObject:value forKey: key];
+//     }
+
+     [glossary setObject:@"123" forKey: @"type"];
+     return glossary;
+ }
 
 #pragma mark - Trace服务相关的回调方法
 

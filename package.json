@@ -1,8 +1,8 @@
 {
   "name": "cordova-baidu-yingyan",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "百度鹰眼cordova plugin",
-  "main": "index.js",
+  "main": "www/Trace.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,8 +11,11 @@
     "url": "git+https://github.com/njleonzhang/cordova-baidu-yingyan.git"
   },
   "keywords": [
+    "ecosystem:cordova",
     "baiduyingyan",
-    "baiduTrace"
+    "baiduTrace",
+    "cordova-android",
+    "cordova-ios"
   ],
   "author": "njleonzhang",
   "license": "MIT",

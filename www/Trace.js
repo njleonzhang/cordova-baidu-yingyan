@@ -47,8 +47,8 @@ var getPromisedCordovaExec = function (command, entity, success, fail) {
 baiduyingyan.startTrace = function(entity, success, fail) {
   return getPromisedCordovaExec(ACTION_START_TRACE, entity, success, fail);
 };
-baiduyingyan.stopTraceListener = function(entity, success, fail) {
-  return getPromisedCordovaExec(ACTION_STOP_TRACE, entity, success, fail);
+baiduyingyan.stopTrace = function(success, fail) {
+  return getPromisedCordovaExec(ACTION_STOP_TRACE, {}, success, fail);
 };
 baiduyingyan.setInterval = function(gatherInterval, packInterval, success, fail) {
   var entity = {

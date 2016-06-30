@@ -232,6 +232,9 @@ SWIFT_PROTOCOL("_TtP13BaiduTraceSDK26ApplicationServiceDelegate_")
 /// 11000代表结束服务请求发送失败,已停止采集
 ///
 /// 11002代表轨迹服务还未开启
+///
+/// 11003代表缓存数据上传完毕
+///
 - (void)onStopTrace:(NSInteger)errNo errMsg:(NSString * _Nonnull)errMsg;
 
 /// 推送信息回调方法
@@ -574,102 +577,11 @@ SWIFT_CLASS("_TtC13BaiduTraceSDK12BTRACEAction")
 - (void)fenceDelayAlarm:(id <ApplicationFenceDelegate> _Nonnull)delegate serviceId:(long long)serviceId fenceId:(long long)fenceId observer:(NSString * _Nonnull)observer time:(long long)time;
 @end
 
-
-
-/// 定位设备的运动方式
-///
-/// 0 步行
-///
-/// 1 汽车
-///
-/// 2 火车高铁等
-///
-/// 3 其他
-SWIFT_CLASS("_TtC13BaiduTraceSDK28BTRACEActivityTypeOfLocation")
-@interface BTRACEActivityTypeOfLocation : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-/// 定位精确度的级别
-///
-/// 0 最高定位精度，此选项定位最为精确，适用于导航等场景，只有手机插上电源才有效
-///
-/// 1 米级别的定位精度，是不插电源情况下的最高定位精度
-///
-/// 2 十米级别的定位精度
-///
-/// 3 百米级别的定位精度
-///
-/// 4 千米级别的定位精度
-///
-/// 5 最低定位精度，偏移可能达到几公里以上
-SWIFT_CLASS("_TtC13BaiduTraceSDK31BTRACEDesiredAccuracyOfLocation")
-@interface BTRACEDesiredAccuracyOfLocation : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-/// 设置采集和打包周期的回调方法中的状态码
-///
-/// 0 设置成功
-///
-/// 1 设置失败
-///
-/// 2 参数错误
-SWIFT_CLASS("_TtC13BaiduTraceSDK51BTRACEOnChangeGatherAndPackIntervalsAfterStartTrace")
-@interface BTRACEOnChangeGatherAndPackIntervalsAfterStartTrace : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-/// 开始轨迹服务的回调方法中的状态码
-///
-/// 0 连接服务器成功
-///
-/// 10002 参数错误
-///
-/// 10003 轨迹服务类型错误
-///
-/// 10007 连接服务器失败,已开始采集轨迹,并进入缓存模式
-///
-/// 10008 连接服务器失败,当网络恢复后会自动重新登录
-///
-/// 10009 重新连接成功
-SWIFT_CLASS("_TtC13BaiduTraceSDK22BTRACEOnStartTraceType")
-@interface BTRACEOnStartTraceType : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
-/// 结束轨迹服务的回调方法中的状态码
-///
-/// 0 结束轨迹服务成功
-///
-/// 11000 结束服务请求发送失败,已停止采集
-///
-/// 11002 还没有开始服务
-///
-/// 11003 缓存数据上传完毕
-SWIFT_CLASS("_TtC13BaiduTraceSDK21BTRACEOnStopTraceType")
-@interface BTRACEOnStopTraceType : NSObject
-- (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
-@end
-
-
-
 /// 轨迹服务类型
 SWIFT_CLASS("_TtC13BaiduTraceSDK19BTRACEOperationMode")
 @interface BTRACEOperationMode : NSObject
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
 @end
 
-@interface UIDevice (SWIFT_EXTENSION(BaiduTraceSDK))
-@property (nonatomic, readonly, copy) NSString * _Nonnull modelName;
-@end
 
 #pragma clang diagnostic pop

@@ -1,7 +1,7 @@
 {
   "name": "cordova-baidu-yingyan",
   "version": "0.0.2",
-  "description": "百度鹰眼cordova plugin",
+  "description": "百度鹰眼的cordova plugin",
   "main": "www/Trace.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

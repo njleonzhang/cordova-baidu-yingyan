@@ -3,7 +3,7 @@
   <name>BaiduTrace</name>
   <platform name="android">
     <js-module src="www/Trace.js">
-      <clobbers target="cordova.baiduyingyan" />
+      <clobbers target="cordova.baiduTrace" />
     </js-module>
 
     <config-file target="res/xml/config.xml" parent="/*">
@@ -67,7 +67,7 @@
 
   <platform name="ios">
     <js-module src="www/Trace.js">
-      <clobbers target="cordova.baiduyingyan" />
+      <clobbers target="cordova.baiduTrace" />
     </js-module>
 
     <config-file target="config.xml" parent="/*">

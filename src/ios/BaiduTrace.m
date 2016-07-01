@@ -33,11 +33,12 @@
 
     long long serviceId = [[options objectForKey:@"serviceId"] longLongValue];
     NSString* entityName = [options objectForKey:@"entityName"];
+    NSInteger operationMode = [[options objectForKey:@"operationMode"] integerValue];
 
 
-    NSLog(@"%lldd %@", serviceId, entityName);
+    NSLog(@"%lldd %@ %ld", serviceId, entityName, (long)operationMode);
 
-    _traceInstance = [[BTRACE alloc] initWithAk: _AK mcode: _MCode serviceId: serviceId entityName: entityName operationMode: 2];
+    _traceInstance = [[BTRACE alloc] initWithAk: _AK mcode: _MCode serviceId: serviceId entityName: entityName operationMode: operationMode];
 
     dispatch_async(dispatch_get_main_queue(), ^{
         [[BTRACEAction shared] startTrace:self trace:_traceInstance];

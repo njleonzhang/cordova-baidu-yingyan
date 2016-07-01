@@ -45,10 +45,9 @@ public class BaiduTrace extends CordovaPlugin {
     private void setInterval(final JSONObject options, final CallbackContext callbackContext) {
         try {
             //鹰眼服务ID
-            int gatherInterval = options.getInt("gatherInterval"); //开发者创建的鹰眼服务ID
+            int gatherInterval = options.getInt("gatherInterval");
             //entity标识
             int packInterval = options.getInt("packInterval");
-            //轨迹服务类型（0 : 不上传位置数据，也不接收报警信息； 1 : 不上传位置数据，但接收报警信息；2 : 上传位置数据，且接收报警信息）
             client.setInterval(gatherInterval, packInterval);
             callbackContext.success();
         } catch (JSONException e) {
@@ -67,7 +66,7 @@ public class BaiduTrace extends CordovaPlugin {
                     break;
                 case 1:
                     lm = Battery_Saving;
-
+                    break;
                 case 2:
                     lm = Device_Sensors;
             }
@@ -94,19 +93,21 @@ public class BaiduTrace extends CordovaPlugin {
     private boolean startTrace(final JSONObject options, final CallbackContext callbackContext) {
         long serviceId;
         String entityName;
+        int traceType;
 
         try {
             //鹰眼服务ID
             serviceId = options.getLong("serviceId"); //开发者创建的鹰眼服务ID
             //entity标识
             entityName = options.getString("entityName");
+
             //轨迹服务类型（0 : 不上传位置数据，也不接收报警信息； 1 : 不上传位置数据，但接收报警信息；2 : 上传位置数据，且接收报警信息）
+            traceType = options.getInt("operationMode");
+
         } catch (JSONException e) {
             Log.v(debugTag, "不存在参数");
             return false;
         }
-
-        int traceType = 2;
 
         trace = new Trace(ctx, serviceId, entityName, traceType);
         //实例化轨迹服务
@@ -137,7 +138,6 @@ public class BaiduTrace extends CordovaPlugin {
             @Override
             public void onTraceCallback(int arg0, String arg1) {
                 // TODO Auto-generated method stub
-                showMessage("开启轨迹服务回调接口消息 [消息编码 : " + arg0 + "，消息内容 : " + arg1 + "]", Integer.valueOf(arg0));
                 if (0 == arg0 || 10006 == arg0 || 10008 == arg0) {
                     callbackContext.success();
                 } else {
@@ -166,13 +166,19 @@ public class BaiduTrace extends CordovaPlugin {
             // 轨迹服务停止成功
             @Override
             public void onStopTraceSuccess() {
-                callbackContext.success();
+                Log.i(debugTag, "onStopTraceSuccess");
+                client.onDestroy();
+                if(callbackContext != null) {
+                    callbackContext.success();
+                }
             }
 
             // 轨迹服务停止失败（arg0 : 错误编码，arg1 : 消息内容，详情查看类参考）
             @Override
             public void onStopTraceFailed(int arg0, String arg1) {
-                callbackContext.error(arg1);
+                if(callbackContext != null) {
+                    callbackContext.error(arg1);
+                }
             }
         });
 

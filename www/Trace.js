@@ -7,7 +7,7 @@ var ACTION_SET_INTERVAL = 'setInterval';
 var ACTION_SET_LOCATION_MODE = 'setLocationMode';
 var ACTION_SET_PROTOCOL_TYPE = 'setProtocolType';
 
-var baiduyingyan = {};
+var baiduTrace = {};
 
 // Returns a jQuery or AngularJS deferred object, or pass a success and fail callbacks if you don't want to use jQuery or AngularJS
 var getPromisedCordovaExec = function (command, entity, success, fail) {
@@ -44,13 +44,19 @@ var getPromisedCordovaExec = function (command, entity, success, fail) {
   return toReturn;
 };
 
-baiduyingyan.startTrace = function(entity, success, fail) {
+baiduTrace.startTrace = function(entityName, serviceId, operationMode, customAttr, success, fail) {
+  var entity = {
+    entityName: entityName,
+    serviceId: serviceId,
+    operationMode: operationMode,
+    customAttr: customAttr
+  }
   return getPromisedCordovaExec(ACTION_START_TRACE, entity, success, fail);
 };
-baiduyingyan.stopTrace = function(success, fail) {
+baiduTrace.stopTrace = function(success, fail) {
   return getPromisedCordovaExec(ACTION_STOP_TRACE, {}, success, fail);
 };
-baiduyingyan.setInterval = function(gatherInterval, packInterval, success, fail) {
+baiduTrace.setInterval = function(gatherInterval, packInterval, success, fail) {
   var entity = {
     'gatherInterval': gatherInterval,
     'packInterval': packInterval
@@ -58,18 +64,18 @@ baiduyingyan.setInterval = function(gatherInterval, packInterval, success, fail)
   return getPromisedCordovaExec(ACTION_SET_INTERVAL, entity, success, fail);
 };
 
-baiduyingyan.setLocationMode = function(mode, success, fail) {
+baiduTrace.setLocationMode = function(mode, success, fail) {
   var entity = {
     'locationMode': mode
   };
   return getPromisedCordovaExec(ACTION_SET_LOCATION_MODE, entity, success, fail);
 };
 
-baiduyingyan.setProtocolType = function(type, success, fail) {
+baiduTrace.setProtocolType = function(type, success, fail) {
   var entity = {
     'protocolType': type
   };
   return getPromisedCordovaExec(ACTION_SET_PROTOCOL_TYPE, entity, success, fail);
 };
 
-module.exports = baiduyingyan;
+module.exports = baiduTrace;

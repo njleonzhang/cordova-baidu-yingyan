@@ -4,45 +4,49 @@
 <dict>
 	<key>files</key>
 	<dict>
+		<key>.DS_Store</key>
+		<data>
+		D2bdl2vk0KzN/DhuLuNkRVimWGY=
+		</data>
 		<key>Frameworks/libswiftContacts.dylib</key>
 		<data>
-		HGQLXn9dejH4F8mfdfU5O02k2Qc=
+		tnHIInvsXBnj9/cUv6kwCUGzODk=
 		</data>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<data>
-		9UX9n3UcOzK+HMXAdF6CKSX65GM=
+		IpYFEcx0FXp1jL5WZwGxxRreX4c=
 		</data>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<data>
-		9B1cgLFKH87PW1oZv+aLCrQjCHU=
+		eL1urJAPzv2vUurN9hatFm3R6nQ=
 		</data>
 		<key>Frameworks/libswiftCoreImage.dylib</key>
 		<data>
-		ZOnkLtgoNP3R1zYQoH7X3uzCc6A=
+		BvVCUx50miMIYZ5aAuHYrjs46L8=
 		</data>
 		<key>Frameworks/libswiftCoreLocation.dylib</key>
 		<data>
-		4AU25hXO2zlpGHHi3aVE/i2y3xI=
+		XY01xMMIdthJeCH027qO1VNmwXw=
 		</data>
 		<key>Frameworks/libswiftDarwin.dylib</key>
 		<data>
-		2j1IyfREbsNZzU+BXkYwFixeg1E=
+		4gIR21ub7f/fsPBFQiGt/oSHEFU=
 		</data>
 		<key>Frameworks/libswiftDispatch.dylib</key>
 		<data>
-		O9UY6uRDe+6IQPGhizYbolUIMLY=
+		L2lPV9VcKhgro5Jga/PJJe081T8=
 		</data>
 		<key>Frameworks/libswiftFoundation.dylib</key>
 		<data>
-		IdVf4SqP0aOXZHgYLb1PFtHQj8E=
+		jRNMxgMzwgrAgAnHkdXfhkiR0FY=
 		</data>
 		<key>Frameworks/libswiftObjectiveC.dylib</key>
 		<data>
-		3722AOPYxkovG04WiOyH0WfGl40=
+		dRXRAk/ehf+pb6xM6nAG0XXmCWU=
 		</data>
 		<key>Frameworks/libswiftUIKit.dylib</key>
 		<data>
-		MurFb1T3Gnf00dmBuVPtgP/107s=
+		tB8+FIcrCzuTU2DeBFtqttZ/5Os=
 		</data>
 		<key>Headers/BaiduTraceSDK-Swift.h</key>
 		<data>
@@ -58,23 +62,27 @@
 		</data>
 		<key>Info.plist</key>
 		<data>
-		FaA2rpGM1TsO6g2MIRk/lNlxEgc=
+		9C5ncsBd2CegtrhxUewSI+1Ybss=
+		</data>
+		<key>Modules/.DS_Store</key>
+		<data>
+		swjP1Jzh9zOZoRgLO1PFiOWGiSU=
 		</data>
 		<key>Modules/BaiduTraceSDK.swiftmodule/arm.swiftdoc</key>
 		<data>
-		Wjyngj+FvFK5Q8tt3Gg/bVkRkCY=
+		tB8SLaIZKN89xhUVq1S8ZldDXmE=
 		</data>
 		<key>Modules/BaiduTraceSDK.swiftmodule/arm.swiftmodule</key>
 		<data>
-		OPDdXkGA87FWvXnnSbJTgqC/Qy8=
+		gkOEatKB/kthOTK3wji9Vjx4xfQ=
 		</data>
 		<key>Modules/BaiduTraceSDK.swiftmodule/arm64.swiftdoc</key>
 		<data>
-		6KhTibgzkl7ye+JVTRe5CTQM5Po=
+		MMyvE/Qad4kXL/FUnKg494uEaH0=
 		</data>
 		<key>Modules/BaiduTraceSDK.swiftmodule/arm64.swiftmodule</key>
 		<data>
-		YPTUWemV/uv9G6+1Uza+TbQ8Fd4=
+		pXbV27rxVX5w3FUeilysSaRGO/I=
 		</data>
 		<key>Modules/module.modulemap</key>
 		<data>
@@ -87,110 +95,110 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			HGQLXn9dejH4F8mfdfU5O02k2Qc=
+			tnHIInvsXBnj9/cUv6kwCUGzODk=
 			</data>
 			<key>hash2</key>
 			<data>
-			L6l6R+C1TDXL0zDivjaydMS6mPYLugzN1LxCJA1UUt0=
+			Ykq4sIunRdNN+5UXzXMpGtJ5OgwA86KLbO7KdLKFjVA=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCore.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9UX9n3UcOzK+HMXAdF6CKSX65GM=
+			IpYFEcx0FXp1jL5WZwGxxRreX4c=
 			</data>
 			<key>hash2</key>
 			<data>
-			+yAbe+gXlOwve0KjuFK7WuodFNxK9QSruJToTqt7egk=
+			NoFdv8meYIHmPwImaW56mN+emL8Fs9ZasmpLNnQL8u0=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreGraphics.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			9B1cgLFKH87PW1oZv+aLCrQjCHU=
+			eL1urJAPzv2vUurN9hatFm3R6nQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			lHrt2TlP0orQXbuaw0R0jTUquEca5ChkHoW0w0qTIoA=
+			vYX/9mtCyOuWLn1Cm25nq4gTY6WxdVxpCbZd5tlgFnY=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreImage.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			ZOnkLtgoNP3R1zYQoH7X3uzCc6A=
+			BvVCUx50miMIYZ5aAuHYrjs46L8=
 			</data>
 			<key>hash2</key>
 			<data>
-			hiFyjiws25g0pAccu2pOyHczswm4xG1R4mcjJJcbjWg=
+			kCVj9uAuOxlFJS5dH4puwQL3dxEVnxQ2LGRm/mqhU7Q=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftCoreLocation.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			4AU25hXO2zlpGHHi3aVE/i2y3xI=
+			XY01xMMIdthJeCH027qO1VNmwXw=
 			</data>
 			<key>hash2</key>
 			<data>
-			KFc9ceGya5i3TCY8goQhYnRML0LjY9yhCM1HR4D/3SQ=
+			LeK4M/KeJEVHUrQgPhqj/VovNNX/Xn4CPuf2qSQEPDE=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftDarwin.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2j1IyfREbsNZzU+BXkYwFixeg1E=
+			4gIR21ub7f/fsPBFQiGt/oSHEFU=
 			</data>
 			<key>hash2</key>
 			<data>
-			U4blnZ5z9S07HOzjSWH7LZd+UsJ/FPEiiDTsIN8nur8=
+			yfYnbRPaH3QgThYkXNX81TjeL/kbMSKeElrtebjsz0Q=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftDispatch.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			O9UY6uRDe+6IQPGhizYbolUIMLY=
+			L2lPV9VcKhgro5Jga/PJJe081T8=
 			</data>
 			<key>hash2</key>
 			<data>
-			E78xlDKJ5ZmBwUZ3regsKPReJDYxgC6Ur6bvWVMR2oU=
+			URjIfj1o8YHreo2wfYchAOI8qwcImNd50JeoTGVn7fI=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftFoundation.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			IdVf4SqP0aOXZHgYLb1PFtHQj8E=
+			jRNMxgMzwgrAgAnHkdXfhkiR0FY=
 			</data>
 			<key>hash2</key>
 			<data>
-			Y+O8euXFVBVYxFDH7XWgfze1Fbki6I+WqJJ8b5Sk2xs=
+			A/chV5aIfuosTAEKGWN7z3pQKHoSv89FoQy8FyqbaPY=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftObjectiveC.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			3722AOPYxkovG04WiOyH0WfGl40=
+			dRXRAk/ehf+pb6xM6nAG0XXmCWU=
 			</data>
 			<key>hash2</key>
 			<data>
-			Gr7vMoO408StMYeElmcTlwrTDw6jd1IJmbWPUjbE6GA=
+			dYMtiHZGepetWwGHHaatWCYOFHqZEClCWAU0wyeyyE4=
 			</data>
 		</dict>
 		<key>Frameworks/libswiftUIKit.dylib</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			MurFb1T3Gnf00dmBuVPtgP/107s=
+			tB8+FIcrCzuTU2DeBFtqttZ/5Os=
 			</data>
 			<key>hash2</key>
 			<data>
-			tP1NYEeYCje+P/fSmmYIs7c/YRntEwhQ46+TriEKtZo=
+			4+uPrMoCpnjWlBan+Xp/EI21tP38s+qNGLQFczC/y7M=
 			</data>
 		</dict>
 		<key>Headers/BaiduTraceSDK-Swift.h</key>
@@ -230,44 +238,44 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			Wjyngj+FvFK5Q8tt3Gg/bVkRkCY=
+			tB8SLaIZKN89xhUVq1S8ZldDXmE=
 			</data>
 			<key>hash2</key>
 			<data>
-			X27lYCt+/ztZgiLp0wT73qmXKm8MIsnZRqzmoBjVHE8=
+			MoO4s0ZEYlCLsoFbRVIXqfGEIYWbhWNs1JS6E58flKY=
 			</data>
 		</dict>
 		<key>Modules/BaiduTraceSDK.swiftmodule/arm.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			OPDdXkGA87FWvXnnSbJTgqC/Qy8=
+			gkOEatKB/kthOTK3wji9Vjx4xfQ=
 			</data>
 			<key>hash2</key>
 			<data>
-			8AMMzm+QOvUtNIE0HIWmk2AvIkTeZ8ZvVOeHkfEKKv4=
+			FneGWNLobj0ACA0SVLEdtm7pbxB/2Iye917owcbU8m0=
 			</data>
 		</dict>
 		<key>Modules/BaiduTraceSDK.swiftmodule/arm64.swiftdoc</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			6KhTibgzkl7ye+JVTRe5CTQM5Po=
+			MMyvE/Qad4kXL/FUnKg494uEaH0=
 			</data>
 			<key>hash2</key>
 			<data>
-			p1//zN4YPazN/JMleZwh5uoAvkbBYurxuirObRAk42w=
+			aCNxzUsanL2b0s9kFGaAtNiqTcO6SfOMKGmHUEj+89w=
 			</data>
 		</dict>
 		<key>Modules/BaiduTraceSDK.swiftmodule/arm64.swiftmodule</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			YPTUWemV/uv9G6+1Uza+TbQ8Fd4=
+			pXbV27rxVX5w3FUeilysSaRGO/I=
 			</data>
 			<key>hash2</key>
 			<data>
-			oV6Rodlwd9UaRj40wSkx7DZh4jT4v5p4RMiXmb5yP44=
+			ZadnlAlkdJ/zn6Rv6NBu3KpblbHTrqc+cqjvFevud34=
 			</data>
 		</dict>
 		<key>Modules/module.modulemap</key>

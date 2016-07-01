@@ -1,5 +1,10 @@
 #百度鹰眼cordova插件 cordova-baidu-yingyan
 
+百度鹰眼是集轨迹追踪、轨迹数据存储、轨迹处理与查询的一套完整轨迹管理开放服务，通过覆盖多平台的SDK、API以及强大的云端服务，帮助开发者轻松开发人员和车辆轨迹追踪系统。
+使用百度鹰眼，您可以轻松开发出一套适用于车队监控、外业人员监管、儿童防丢领域的轨迹管理产品。
+
+[百度的鹰眼系统](http://lbsyun.baidu.com/index.php?title=yingyan)
+
 # 下载安装
 `cordova plugin add cordova-baidu-yingya`
 
@@ -15,7 +20,7 @@ config.xml:
     <config-file target="AndroidManifest.xml" parent="./application">
       <meta-data
         android:name="com.baidu.lbsapi.API_KEY"
-        android:value="你的AK" />
+        android:value="你的android AK" />
     </config-file>
   </platform>
 ```
@@ -23,11 +28,9 @@ config.xml:
 ## ios
 config.xml里添加如下代码，配置AK和Mcode:
 ```
-  <preference name="BaiduTraceIOSAK" value="rp70coMHPMmpi6QI9r7n2rNGL2eXWel3" />
-  <preference name="BaiduTraceIOSMCode" value="com.test.test" />
+  <preference name="BaiduTraceIOSAK" value="你的IOSAK" />
+  <preference name="BaiduTraceIOSMCode" value="你的Mcode" />
 ```
-百度的SDK framework的Embedded现在可以自动完成。
-
 
 # js API
 

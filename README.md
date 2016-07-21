@@ -119,8 +119,8 @@ config.xml里添加如下代码，配置AK和Mcode:
 ```
 
 # IOS特别说明
-  这个plugin里包的是百度鹰眼的ios开发版SDK，只能用于开发，不能上架。
-  如需上加请下载上架版。
+  这个plugin里包的是百度鹰眼的ios开发版SDK，只能用于开发和模拟器调试，不能上架和真机调试。
+  如需上架或者真机调试，请下载上架版。
 
   [百度鹰眼IOS SDK下载连接](http://lbsyun.baidu.com/index.php?title=ios-yingyan/sdkandev-download)
 

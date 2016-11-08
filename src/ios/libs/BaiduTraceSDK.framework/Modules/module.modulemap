@@ -1,5 +1,5 @@
 framework module BaiduTraceSDK {
-  umbrella header "BaiduTraceSDK-Swift.h"
+  umbrella header "BaiduTraceSDK.h"
 
   export *
   module * { export * }

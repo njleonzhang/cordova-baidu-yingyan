@@ -22,9 +22,6 @@
   "dependencies": {
     "xcode": "^0.8.3"
   },
-  "bundledDependencies": [
-    "xcode"
-  ],
   "bugs": {
     "url": "https://github.com/njleonzhang/cordova-baidu-yingyan/issues"
   },

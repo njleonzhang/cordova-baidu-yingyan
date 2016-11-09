@@ -14,6 +14,7 @@ module.exports = function(context) {
   function fromDir(startPath, filter, rec, multiple) {
     if (!fs.existsSync(startPath)) {
       console.log("no dir ", startPath);
+      console.log('cwd is:', procss.cwd())
       process.chdir('../../'); // rescu for after_plugin_install
       if (!fs.existsSync(startPath)) {
         console.log("no dir ", startPath);
@@ -73,6 +74,7 @@ module.exports = function(context) {
   }
 
   const xcodeProjPath = fromDir('platforms/ios', '.xcodeproj', false);
+  console.log(xcodeProjPath)
 
   const projectPath = xcodeProjPath + '/project.pbxproj';
   const myProj = xcode.project(projectPath);
@@ -99,6 +101,7 @@ module.exports = function(context) {
   const groupName = 'Embed Frameworks ' + context.opts.plugin.id;
   const pluginPathInPlatformIosDir = projectName + '/Plugins/' + context.opts.plugin.id;
 
+  console.log('current w f', process.cwd())
   process.chdir('./platforms/ios');
   const frameworkFilesToEmbed = fromDir(pluginPathInPlatformIosDir, '.framework', false, true);
   process.chdir('../../');

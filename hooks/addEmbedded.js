@@ -72,19 +72,20 @@ module.exports = function(context) {
     const projectPath = xcodeProjPath + '/project.pbxproj';
     const myProj = xcode.project(projectPath);
 
-    function addRunpathSearchBuildProperty(proj) {
-        const LD_RUNPATH_SEARCH_PATHS =  proj.getBuildProperty("LD_RUNPATH_SEARCH_PATHS");
-        if(!LD_RUNPATH_SEARCH_PATHS) {
-            proj.addBuildProperty("LD_RUNPATH_SEARCH_PATHS", "\"$(inherited) @executable_path/Frameworks\"");
-        } else if(LD_RUNPATH_SEARCH_PATHS.indexOf("@executable_path/Frameworks") == -1) {
-            var newValue = LD_RUNPATH_SEARCH_PATHS.substr(0,LD_RUNPATH_SEARCH_PATHS.length-1);
-            newValue += ' @executable_path/Frameworks\"';
-            proj.updateBuildProperty("LD_RUNPATH_SEARCH_PATHS", newValue);
-        }
+    function addRunpathSearchBuildProperty(proj, build) {
+       const LD_RUNPATH_SEARCH_PATHS =  proj.getBuildProperty("LD_RUNPATH_SEARCH_PATHS", build);
+       if(!LD_RUNPATH_SEARCH_PATHS) {
+          proj.addBuildProperty("LD_RUNPATH_SEARCH_PATHS", "\"$(inherited) @executable_path/Frameworks\"", build);
+       } else if(LD_RUNPATH_SEARCH_PATHS.indexOf("@executable_path/Frameworks") == -1) {
+          var newValue = LD_RUNPATH_SEARCH_PATHS.substr(0,LD_RUNPATH_SEARCH_PATHS.length-1);
+          newValue += ' @executable_path/Frameworks\"';
+          proj.updateBuildProperty("LD_RUNPATH_SEARCH_PATHS", newValue, build);
+       }
     }
 
     myProj.parseSync();
-    addRunpathSearchBuildProperty(myProj);
+    addRunpathSearchBuildProperty(myProj, "Debug");
+    addRunpathSearchBuildProperty(myProj, "Release");
 
     // unquote (remove trailing ")
     var projectName = myProj.getFirstTarget().firstTarget.name.substr(1);
@@ -123,7 +124,7 @@ module.exports = function(context) {
         var newFrameworkFileEntry = {
             uuid: myProj.generateUuid(),
             basename: justFrameworkFile,
-            fileRef: fileRef,
+            fileRef:fileRef,
             group: "Frameworks"
         };
         myProj.addToPbxBuildFileSection(newFrameworkFileEntry);

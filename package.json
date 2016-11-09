@@ -1,6 +1,6 @@
 {
   "name": "cordova-baidu-yingyan",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "百度鹰眼的cordova plugin",
   "main": "www/Trace.js",
   "scripts": {

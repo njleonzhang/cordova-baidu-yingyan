@@ -7,7 +7,6 @@
 {
     _AK = [self.commandDelegate.settings objectForKey: [@"BaiduTraceIOSAK" lowercaseString]];
     _MCode = [self.commandDelegate.settings objectForKey: [@"BaiduTraceIOSMCode" lowercaseString]];
-
     NSLog(@"_AK: %@, _Mcode %@", _AK, _MCode);
 }
 
@@ -36,11 +35,11 @@
     NSInteger operationMode = [[options objectForKey:@"operationMode"] integerValue];
 
 
-    NSLog(@"%lldd %@ %ld", serviceId, entityName, (long)operationMode);
+    NSLog(@"%lld %@ %ld", serviceId, entityName, (long)operationMode);
 
     _traceInstance = [[BTRACE alloc] initWithAk: _AK mcode: _MCode serviceId: serviceId entityName: entityName operationMode: operationMode];
 
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[BTRACEAction shared] startTrace:self trace:_traceInstance];
     });
 }
@@ -50,7 +49,7 @@
     NSLog(@"%@", @"stopTrace");
     stopTraceCallbackId = command.callbackId;
 
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [[BTRACEAction shared] stopTrace:self trace:_traceInstance];
     });
 }

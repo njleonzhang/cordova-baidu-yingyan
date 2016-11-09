@@ -9,6 +9,12 @@
 `cordova plugin add cordova-baidu-yingya`
 
 # 配置
+
+## config.xml widget
+
+add
+`xmlns:android="http://schemas.android.com/apk/res/android"` to config.xml `widget` tag, otherwise you may encounter issue, `AAPT: Error parsing XML: unbound prefix`
+
 ## android
 
 需要在config.xml里添加下面的配置来配置您的AK：
@@ -111,7 +117,7 @@ config.xml里添加如下代码，配置AK和Mcode:
         alert('收集失败' + error);
       });
 
-      cordova.baiduyingyan.stopTrace().then(function(msg) {
+      cordova.baiduTrace.stopTrace().then(function(msg) {
         alert('停止收集成功：'+msg)
       }, function(error) {
         alert('停止收集失败：'+error)

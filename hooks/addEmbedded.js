@@ -14,7 +14,7 @@ module.exports = function(context) {
   function fromDir(startPath, filter, rec, multiple) {
     if (!fs.existsSync(startPath)) {
       console.log("no dir ", startPath);
-      console.log('cwd is:', procss.cwd())
+      console.log('cwd is:', process.cwd())
       process.chdir('../../'); // rescu for after_plugin_install
       if (!fs.existsSync(startPath)) {
         console.log("no dir ", startPath);

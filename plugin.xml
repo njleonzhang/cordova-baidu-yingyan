@@ -94,6 +94,7 @@
     </config-file>
 
     <framework src="src/ios/libs/BaiduTraceSDK.framework" custom="true" embed="true"/>
+    <hook type="after_plugin_install" src="hooks/npmInstall.js"/>
     <hook type="after_platform_add" src="hooks/addEmbedded.js"/>
     <source-file src="src/ios/BaiduTrace.h"/>
     <source-file src="src/ios/BaiduTrace.m"/>

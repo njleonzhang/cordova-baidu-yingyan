@@ -49,7 +49,7 @@ baiduTrace.startTrace = function(entityName, serviceId, operationMode, customAtt
     entityName: entityName,
     serviceId: serviceId,
     operationMode: operationMode,
-    customAttr: customAttr
+    customAttr: customAttr || {}
   }
   return getPromisedCordovaExec(ACTION_START_TRACE, entity, success, fail);
 };

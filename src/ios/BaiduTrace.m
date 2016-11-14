@@ -59,19 +59,30 @@
     NSMutableDictionary *options = [command argumentAtIndex:0];
     int32_t gatherInterval = [[options objectForKey:@"gatherInterval"] floatValue];
     int32_t packInterval = [[options objectForKey:@"packInterval"] floatValue];
+    CDVPluginResult* intervalResult;
 
     NSLog(@"%d %d", gatherInterval, packInterval);
-    [_traceInstance setInterval:gatherInterval packInterval:packInterval];
+    BOOL intervalRet = [_traceInstance setInterval:gatherInterval packInterval:packInterval];
+    if (intervalRet) {
+        intervalResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"OK"];
+    } else {
+        intervalResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:@"fail"];
+    }
+    [self.commandDelegate sendPluginResult:intervalResult callbackId:command.callbackId];
 }
 
 -(void)setLocationMode:(CDVInvokedUrlCommand *)command
 {
     NSLog(@"IOS SDK 不支持 setLocationMode");
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"not surpport"];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
 -(void)setProtocolType:(CDVInvokedUrlCommand *)command
 {
     NSLog(@"IOS SDK 不支持 setProtocolType");
+    CDVPluginResult* result = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"not surpport"];
+    [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
 }
 
  - (NSDictionary*)trackAttr

@@ -136,6 +136,48 @@ config.xml里添加如下代码，配置AK和Mcode:
       });
 ```
 
+# 重试机制
+app刚起来的时候如果调用鹰眼的这些api，可以会由于sdk还没有完全初始化导致，调用失败，所以最好给api都加入重试机制，这里是一个简单的angular版的例子：
+
+```
+angular.module('retryCall')
+  .service('retryCall', function($q) {
+    this.run = function(fn, ...params) {
+      let defer = $q.defer()
+      let retryTimes = 3
+      let count = 0
+
+      function doSafeCall() {
+        fn.apply(null, params).then((value) => {
+          defer.resolve(value)
+        }, (error) => {
+          if(count++ < 3) {
+            console.log(`will retry ${fn} in 10 second`)
+            window.setTimeout(() => {
+              doSafeCall()
+            }, 10000)
+          } else {
+            defer.reject()
+          }
+        })
+      }
+
+      doSafeCall()
+      return defer.promise
+    }
+  })
+```
+
+调用的api的时候，这样写：
+
+```
+retryCall.run(cordova.baiduTrace.startTrace, entityName, serviceId, operationMode).then(() => {
+  console.log('startTrace OK')
+}, (error) => {
+  console.error(`startTrace for ${cellphone} fail`, error)
+})
+```
+
 # Next
 提供更多接口
 用swift重写ios代码

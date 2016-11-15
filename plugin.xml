@@ -63,6 +63,7 @@
     </config-file>
 
     <dependency id="cordova-plugin-settings-hook"/>
+    <framework src="com.android.support:support-v4:25.0.1" />
   </platform>
 
   <platform name="ios">

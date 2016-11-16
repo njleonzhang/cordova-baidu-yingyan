@@ -12,19 +12,16 @@
 
 ## config.xml
 
-*
 ```
 xmlns:android="http://schemas.android.com/apk/res/android"
 ```
 add it to config.xml `widget` tag, otherwise you may encounter issue, `AAPT: Error parsing XML: unbound prefix` when you build android app.
 
-*
 ```
 <preference name="UseLegacySwiftLanguageVersion" value="true" />
 ```
 添加到config.xml里以支持swift2.3，因为百度的SDK使用的是swift 2.3。
 
-*
 ```
 <preference name="android-targetSdkVersion" value="21" />
 ```

@@ -12,21 +12,18 @@
 
 ## config.xml
 
-```
-xmlns:android="http://schemas.android.com/apk/res/android"
-```
-add it to config.xml `widget` tag, otherwise you may encounter issue, `AAPT: Error parsing XML: unbound prefix` when you build android app.
+1. 添加 `xmlns:android="http://schemas.android.com/apk/res/android"` 到config.xml`widget`tag
 
-```
-<preference name="UseLegacySwiftLanguageVersion" value="true" />
-```
-添加到config.xml里以支持swift2.3，因为百度的SDK使用的是swift 2.3。
+    否则当你编译android app时候，你可能遇到 `AAPT: Error parsing XML: unbound prefix`
 
-```
-<preference name="android-targetSdkVersion" value="21" />
-```
 
-默认情况下，cordova工程的targetSdkVersion会取你开发环境里所有的sdk里最新版本。而如果你开发环境里的最新的sdk版本>=23的话，你就会遇到android6.0上，app不会向你主要要权限的问题，原因涉及android6.0的动态权限。添加以上的配置，会强制targetSdkVersion为21。
+2. 添加`<preference name="UseLegacySwiftLanguageVersion" value="true" />`到config.xml
+
+    从而支持swift2.3，因为百度的SDK使用的是swift 2.3。
+
+3. 添加`<preference name="android-targetSdkVersion" value="21" />`到config.xml
+
+    如果不做此设置，你的app在android 6.0上运行时，可能无法主动获取权限。
 
 ## 设置ak和mcode
 

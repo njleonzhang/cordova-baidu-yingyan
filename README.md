@@ -12,12 +12,28 @@
 
 ## config.xml
 
-* add
-`xmlns:android="http://schemas.android.com/apk/res/android"` to config.xml `widget` tag, otherwise you may encounter issue, `AAPT: Error parsing XML: unbound prefix` when you build android app.
+*
+```
+xmlns:android="http://schemas.android.com/apk/res/android"
+```
+add it to config.xml `widget` tag, otherwise you may encounter issue, `AAPT: Error parsing XML: unbound prefix` when you build android app.
 
-* 添加`<preference name="UseLegacySwiftLanguageVersion" value="true" />`到config.xml里以支持swift2.3，因为百度的SDK使用的是swift 2.3。
+*
+```
+<preference name="UseLegacySwiftLanguageVersion" value="true" />
+```
+添加到config.xml里以支持swift2.3，因为百度的SDK使用的是swift 2.3。
 
-## android
+*
+```
+<preference name="android-targetSdkVersion" value="21" />
+```
+
+默认情况下，cordova工程的targetSdkVersion会取你开发环境里所有的sdk里最新版本。而如果你开发环境里的最新的sdk版本>=23的话，你就会遇到android6.0上，app不会向你主要要权限的问题，原因涉及android6.0的动态权限。添加以上的配置，会强制targetSdkVersion为21。
+
+## 设置ak和mcode
+
+### android
 
 需要在config.xml里添加下面的配置来配置您的AK：
 
@@ -33,7 +49,7 @@ config.xml:
   </platform>
 ```
 
-## ios
+### ios
 config.xml里添加如下代码，配置AK和Mcode:
 ```
   <preference name="BaiduTraceIOSAK" value="你的IOSAK" />

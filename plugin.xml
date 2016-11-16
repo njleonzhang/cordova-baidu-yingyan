@@ -32,10 +32,6 @@
       <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
       <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位-->
       <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
-      <!--允许程序连接到已配对的蓝牙设备-->
-      <uses-permission android:name="android.permission.BLUETOOTH"/>
-      <!--允许程序发现和配对蓝牙设备-->
-      <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
       <!-- 用于读取手机当前的状态-->
       <uses-permission android:name="android.permission.READ_PHONE_STATE" />
       <!-- 写入扩展存储，向扩展卡写入数据，用于写入离线定位数据-->
@@ -52,6 +48,8 @@
       <uses-permission android:name="android.permission.WAKE_LOCK" />
       <!--允许应用程序更改主屏幕中的设置和快捷方式-->
       <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+      <!-- 用于优化GPS定位 -->
+      <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" />
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">

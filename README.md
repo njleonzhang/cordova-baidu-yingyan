@@ -6,7 +6,7 @@
 [百度的鹰眼系统](http://lbsyun.baidu.com/index.php?title=yingyan)
 
 # 下载安装
-`cordova plugin add cordova-baidu-yingya`
+`cordova plugin add cordova-baidu-yingyan`
 
 # 配置
 

@@ -53,6 +53,9 @@
     </config-file>
 
     <config-file target="AndroidManifest.xml" parent="/manifest/application">
+     <meta-data
+        android:name="com.baidu.lbsapi.API_KEY"
+        android:value="$API_KEY" />
       <service
          android:name="com.baidu.trace.LBSTraceService"
          android:enabled="true"

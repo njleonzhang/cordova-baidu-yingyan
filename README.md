@@ -1,4 +1,4 @@
-# 百度鹰眼cordova插件 cordova-baidu-yingyan
+# 百度鹰眼cordova插件 cordova-baidu-yingyan （停止维护了，请参考代码自己实现。）
 
 > 很久没有更新了现在不能用，需要使用的朋友可以自己升级一下Ios和Android的native SDK。
 
